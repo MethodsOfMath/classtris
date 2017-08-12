@@ -8,8 +8,13 @@ var type = false;
 var typeCursorX = -1;
 var typeCursorY = -1;
 var letter = 'A';
-var ts = 40;	// text size
 var bs = 30; 	// brush size
+var xh = 0.8; // exponent height
+var exMode = 'off'; // exponent Mode
+var exSize = 20; // exponentSize
+var regTS = 40; // regular text size
+var ts = regTS;	// text size
+var backspace = false;
 
 
 
@@ -74,13 +79,14 @@ void draw() {
     textSize(.8*bs);
     text(brushSize, w-.9*bs,7*bs);  
 
-	//eraser
+	//erasers
 	stroke(0,0,0);
 	fill(0,0,0);
 	rect(w-bs,8*bs,bs,bs);
 	fill(255,0,0);
-    textSize(.8*bs);
-    text("E", w-.9*bs, 8.8*bs);  
+	textSize(.8*bs);
+	text("e", w-.9*bs, 8.8*bs);  
+	text("E", w-.9*bs, 10*bs);  
 
 	if (isDraw === 1) {
 		noStroke();
@@ -96,6 +102,12 @@ void draw() {
 		textFont("Courier New");
 		type = false;
 		}
+	
+	if (backspace) {
+		fill(color(0,0,0));
+		rect(typeCursorX, typeCursorY, ts, ts);
+		backspace = false;
+		}
 
 
 }
@@ -103,18 +115,30 @@ void draw() {
 
 void keyPressed() {
 	if (key == CODED) {
-	} else {	
-		letter = key;
-		type = true;
-		if (typeCursorX === -1) {
-			typeCursorX = mouseX;
-			typeCursorY = mouseY;
-		} else if (typeCursorX > w-bs-ts*1.3) {
-			typeCursorX = 0;
-			typeCursorY = typeCursorY + ts;
+		if (keycode == BACKSPACE) {
+			backspace = true;
+			typeCursorX -= ts;
+		}
+	} else {
+		if (key == '_') {
+			typeCursorY = typeCursorY + ts*xh;
+
+		} else if (key == '^') {
+			typeCursorY = typeCursorY - ts*xh;
+
 		} else {
-			typeCursorX = typeCursorX + ts/1.3;
-				
+			letter = key;
+			type = true;
+			if (typeCursorX === -1) {
+				typeCursorX = mouseX;
+				typeCursorY = mouseY;
+			} else if (typeCursorX > w-bs-ts*1.3) {
+				typeCursorX = 0;
+				typeCursorY = typeCursorY + ts;
+			} else {
+				typeCursorX = typeCursorX + ts/1.3;
+
+			}
 		}
 	}	
 }
@@ -172,8 +196,14 @@ void mousePressed() {
 		    paintColor = color(213, 0, 255);
 		}
 		
-		// eraser
+		// ssmall eraser
 		if (mouseY > 8*bs && mouseY < 9.5*bs) {
+		    //brushSize = brushSize*10;
+		    paintColor = color(0,0,0);
+		}
+		
+		// large eraser
+		if (mouseY > 9.5*bs && mouseY < 11*bs) {
 		    clear = true;
 		}
 	}
