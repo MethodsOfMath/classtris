@@ -51,11 +51,11 @@ Questions are loaded in a similar fashion..
 - Click e to erase portions of the board by drawing with a black pen.
 - Click colors to switch colors. Click the plus and minus to change the size of the pen.
 - To type an exponent or superscript, type ^. 
--- To return to the original line, type _ . 
--- To go up another level type ^ again. 
+- - To return to the original line, type _ . 
+- - To go up another level type ^ again. 
 - To type subscript, type _ . 
--- To return to the original line, type ^. 
--- To go down another level type _ again. 
+- - To return to the original line, type ^. 
+- - To go down another level type _ again. 
 ### Credits
  
 Uses processing.js for the blackboard. http://processingjs.org/
