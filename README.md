@@ -47,9 +47,15 @@ Questions are loaded in a similar fashion..
 ## Blakboard
 - To display the Blackboard, click BB in the top menu. To hide the blackboard click HIDE in the top menu.
  - Hold down mouse to draw. Type letters to write where the mouse is pointing. Click the screen to change the text location.
--  Click E to erase the blackboard. Click colors to switch colors. Click the plus and minus to change the size of the pen.
-- Click next to move the next student to the up position.
-
+-  Click E to erase the blackboard. 
+- Click e to erase portions of the board by drawing with a black pen.
+- Click colors to switch colors. Click the plus and minus to change the size of the pen.
+- To type an exponent or superscript, type ^. 
+-- To return to the original line, type _ . 
+-- To go up another level type ^ again. 
+- To type subscript, type _ . 
+-- To return to the original line, type ^. 
+-- To go down another level type _ again. 
 ### Credits
  
 Uses processing.js for the blackboard. http://processingjs.org/
