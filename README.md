@@ -11,7 +11,7 @@ To use Classtris, you need to load a class list from a text files at the bottom 
 - For confirmation, questions and students are shown in a text box under the load buttons. You can hide this by clicking hide.
 - Example student list: https://punkbass.github.io/classtris/students.txt [Right click and pick save as]
 
-Questions are loaded in a similar fashion..
+Questions are loaded in a similar fashion.
 - You must put each question on a seperate line in a text file. 
 - You can use HTML tags in the questions for formatting or loading pictures and other media. 
 - You can add images to the question list by using the HTML tags. See the example question list for an example.
